@@ -19,7 +19,7 @@ import caiohudak.data.dto.v2.PersonDTOV2;
 import caiohudak.services.PersonServices;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/api/person/v1")
 public class PersonController {
 	
 	@Autowired
