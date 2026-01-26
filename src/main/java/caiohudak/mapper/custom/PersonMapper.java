@@ -4,24 +4,23 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import caiohudak.data.dto.v2.PersonDTOV2;
+import caiohudak.data.dto.v1.PersonDTO;
 import caiohudak.model.Person;
 
 @Service
 public class PersonMapper {
 
-	public PersonDTOV2 convertEntityToDTO(Person person) {
-		PersonDTOV2 dto = new PersonDTOV2();
+	public PersonDTO convertEntityToDTO(Person person) {
+		PersonDTO dto = new PersonDTO();
 		dto.setId(person.getId());
 		dto.setFirstName(person.getFirstName());
 		dto.setLastName(person.getLastName());
-		dto.setBirthDay(new Date());
 		dto.setAddress(person.getAddress());
 		dto.setGender(person.getGender());
 		return dto;
 	}
 	
-	public Person convertDTOtoEntity(PersonDTOV2 person) {
+	public Person convertDTOtoEntity(PersonDTO person) {
 		Person entity = new Person();
 		entity.setId(person.getId());
 		entity.setFirstName(person.getFirstName());

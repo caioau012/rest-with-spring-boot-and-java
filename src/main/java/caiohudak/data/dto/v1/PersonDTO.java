@@ -3,7 +3,11 @@ package caiohudak.data.dto.v1;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class PersonDTO implements Serializable{
+import org.springframework.hateoas.RepresentationModel;
+
+
+
+public class PersonDTO extends RepresentationModel<PersonDTO> implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -78,8 +82,5 @@ public class PersonDTO implements Serializable{
 				&& Objects.equals(gender, other.gender) && Objects.equals(id, other.id)
 				&& Objects.equals(lastName, other.lastName);
 	}
-	
-	
-	
 	
 }
