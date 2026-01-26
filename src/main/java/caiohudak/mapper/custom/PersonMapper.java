@@ -1,7 +1,5 @@
 package caiohudak.mapper.custom;
 
-import java.util.Date;
-
 import org.springframework.stereotype.Service;
 
 import caiohudak.data.dto.v1.PersonDTO;

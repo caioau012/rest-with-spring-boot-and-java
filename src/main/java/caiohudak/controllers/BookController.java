@@ -14,42 +14,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import caiohudak.controllers.docs.PersonControllerDocs;
-import caiohudak.data.dto.v1.PersonDTO;
-import caiohudak.services.PersonServices;
+import caiohudak.controllers.docs.BookControllerDocs;
+import caiohudak.data.dto.v1.BookDTO;
+import caiohudak.services.BookServices;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/person")
-@Tag(name = "People", description = "Endpoints for Managing People")
-public class PersonController implements PersonControllerDocs {
+@RequestMapping("/book")
+@Tag(name = "Book", description = "Endpoints for Managing books")
+public class BookController implements BookControllerDocs {
 	
 	@Autowired
-	private PersonServices service;
+	private BookServices service;
 	
 	@Override
 	@GetMapping(value = "/{id}", produces =  {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE})
-	public PersonDTO findById(@PathVariable("id") Long id) {
+	public BookDTO findById(@PathVariable("id") Long id) {
 		 return service.findById(id);
 	}
 	
 	@Override
 	@GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE})
-	public List<PersonDTO> findAll() {
+	public List<BookDTO> findAll() {
 		return service.findAll();
 	}
 	
 	@Override
 	@PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE}, produces =  {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE})
-    public PersonDTO create(@RequestBody PersonDTO person) {
-		return service.create(person);
+    public BookDTO create(@RequestBody BookDTO book) {
+		return service.create(book);
 	}
 	
 	@Override
 	@PutMapping(consumes =  {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE}, produces =  {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_YAML_VALUE})
 	
-	public PersonDTO update(@RequestBody PersonDTO person) {
-		return service.update(person);
+	public BookDTO update(@RequestBody BookDTO Book) {
+		return service.update(Book);
 	}
 	
 	@Override
